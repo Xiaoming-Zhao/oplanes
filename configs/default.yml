@@ -1,0 +1,73 @@
+SEED: 0
+
+# logging settings
+LOG_DIR: "exps"
+LOG_FILE: "train.log"
+INFO_DIR: "infos"
+CHECKPOINT_FOLDER: "checkpoints"
+TENSORBOARD_DIR: "tb"
+# CHECKPOINT_INTERVAL: 100
+# LOG_INTERVAL: 10
+
+TRAIN:
+  n_gpus: 1
+  n_epochs: 15
+
+  batch_size: 4
+
+  learning_rate: 1.0e-3
+
+  coeff_ce: 1.0
+  coeff_ce_pos: 1.0
+  coeff_ce_neg: 1.0
+  coeff_dice: 1.0
+
+  num_workers: 8
+
+  intermediate_supervise: true
+
+  PROCESS_DATA:
+    data_h: 512
+    data_w: 512
+    crop_expand_ratio: 0.1
+
+    # On train_27566, min/max: (0.26687883999999995, 1.9900097900000002)
+    # On val_4300, min/max: (0.31592308999999985, 1.7694604500000004)
+    max_depth_range: 2.1
+
+    depth_range_expand_ratio: 0.1
+
+    n_planes_for_train: 5
+    n_planes_for_val: 20
+
+    use_masked_out_img: false
+
+MODEL:
+  # choices: [v_coarse2fine_conv, v_coarse2fine_1x1conv]
+  name: "v_coarse2fine_conv"
+  backbone: "Resnet50WithFPN"
+
+  feat_channels: 128
+
+  pos_enc:
+    num_pos_feats: 64
+    temperature: 200
+    scale: 50.0
+
+DATASET:
+
+  train: {
+    "dryrun": "datasets/s3d/splits/train_dryrun.txt",
+    "full": "datasets/s3d/splits/train_27588.txt",
+  }
+  val: {
+    "dryrun": "datasets/s3d/splits/val_dryrun.txt",
+    "full": "datasets/s3d/splits/val_4300.txt",
+  }
+
+  mesh_data_root: "datasets/s3d/raw"
+
+  binvox_type: "default"
+  binvox_path_dict: {
+    "default": "datasets/s3d/binvox_256"
+  }

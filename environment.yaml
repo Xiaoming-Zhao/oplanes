@@ -1,0 +1,32 @@
+name: oplanes
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pytorch=1.10.2
+  - cudatoolkit=11.3
+  - torchvision=0.11.3
+  - meshplot
+  - tqdm
+  - joblib
+  - pandas
+  - jupyterlab
+  - matplotlib
+  - scikit-image
+  - cython
+  - igl
+  - h5py
+  - pyembree
+  - trimesh
+  - pip
+  - pip:
+    - yacs
+    - rtree
+    - lz4
+    - medpy
+    - PyMCubes
+    - hydra-core
+    - opencv-python
+    - setuptools
+    - pytorch-lightning==1.5.10
