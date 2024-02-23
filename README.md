@@ -37,7 +37,7 @@ cd /path/to/this/repo
 export OPLANES_ROOT=$PWD
 ```
 
-Please download our [pretrained checkpoints](https://drive.google.com/drive/folders/12NpmG-yhIEeSR81iVL9bSCqmdi5RaCBv?usp=sharing) and place them under `${OPLANES_ROOT}/ckpts`. The structure should be:
+Please download our from the [release page](https://github.com/Xiaoming-Zhao/oplanes/releases) or [this link](https://drive.google.com/drive/folders/12NpmG-yhIEeSR81iVL9bSCqmdi5RaCBv?usp=sharing) and place them under `${OPLANES_ROOT}/ckpts`. The structure should be:
 ```
 .
 +-- ckpts
